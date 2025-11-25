@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Clerk.BackendAPI;
+using Clerk.BackendAPI.Models.Components;
 
 namespace StyleSense.Api.Controllers;
 
