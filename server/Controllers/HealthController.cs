@@ -8,9 +8,18 @@ namespace StyleSense.Api.Controllers;
 [Route("api/[controller]")]
 public class HealthController : ControllerBase
 {
-    [HttpGet]
-    public IActionResult Get()
+    private readonly AuthService _authService;
+
+    public HealthController(AuthService authService)
     {
+        _authService = authService;
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Get()
+    {
+        bool isAuthenticated = await _authService.IsSignedInAsync(Request);
+        if(!isAuthenticated) { return Unauthorized(); }
         return Ok(new { status = "healthy", timestamp = DateTime.UtcNow });
     }
 }

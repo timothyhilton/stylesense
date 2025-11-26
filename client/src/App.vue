@@ -1,6 +1,20 @@
 <script setup lang="ts">
+  import { ref } from 'vue'
   import HelloWorld from './components/HelloWorld.vue'
-  import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/vue'
+  import { SignedIn, SignedOut, SignInButton, UserButton, useAuth } from '@clerk/vue'
+
+  const { getToken } = useAuth()
+  const apiData = ref(null)
+
+  const callApi = async () => {
+    const token = await getToken.value()
+    const response = await fetch('http://localhost:5010/api/health', {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+    apiData.value = await response.json()
+  }
 </script>
 
 <template>
@@ -10,6 +24,10 @@
     </SignedOut>
     <SignedIn>
       <UserButton />
+      <button @click="callApi">Call API</button>
+      <div v-if="apiData">
+        {{ apiData }}
+      </div>
     </SignedIn>
   </header>
   <div>
