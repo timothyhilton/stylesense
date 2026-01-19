@@ -42,6 +42,16 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
   shellComponent: RootDocument,
 })
 
+const themeScript = `
+(function() {
+  var stored = localStorage.getItem('stylesense.theme')
+  var theme = stored === 'light' || stored === 'dark' 
+    ? stored 
+    : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+  document.documentElement.dataset.theme = theme
+})()
+`
+
 function RootDocument({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     initTheme()
@@ -50,6 +60,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <HeadContent />
       </head>
       <body>
