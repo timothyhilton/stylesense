@@ -1,18 +1,25 @@
-# --- .NET / ASP.NET Core ---
-# Build results
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+count.txt
+.env
+.nitro
+.tanstack
+.wrangler
+.output
+.vinxi
+todos.json
+
+# .NET / ASP.NET Core
 [Bb]in/
 [Oo]bj/
-/server/bin/
-/server/obj/
-
-# User-specific files
 *.rsuser
 *.suo
 *.user
 *.userosscache
 *.sln.docstates
-
-# User-specific files (Mono)
 *_i.c
 *_ii.c
 *.iframe
@@ -21,7 +28,7 @@
 *.exe.mdb
 *.pdb
 
-# Visual Studio Code
+# VS Code
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -29,10 +36,6 @@
 !.vscode/extensions.json
 *.code-workspace
 
-# Mac/OSX
-.DS_Store
-
-# --- Node.js / Vue (Client) ---
 # Logs
 logs
 *.log
@@ -41,23 +44,11 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Dependency directories
-node_modules/
-/client/node_modules/
-
-# Build outputs
-dist/
-/client/dist/
-dist-ssr/
-
-# Environment variables
-.env
+# Environment
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
-/server/appsettings.Development.json
-!/server/appsettings.json
 
 # IDEs
 .idea/

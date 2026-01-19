@@ -1,0 +1,77 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+@import '@fontsource-variable/bricolage-grotesque/index.css';
+
+:root {
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --bg: #efece1;
+  --text: #242424;
+  --muted: color-mix(in srgb, var(--text) 72%, transparent);
+  --accent: #b8a3ff;
+  --ink: #2a2a2a;
+  --paper: #f6f3ea;
+  --paper-soft: color-mix(in srgb, var(--paper) 65%, white);
+  --glass: color-mix(in srgb, white 45%, transparent);
+  --glass-strong: color-mix(in srgb, white 60%, transparent);
+  --border: color-mix(in srgb, var(--text) 8%, transparent);
+  --hover: color-mix(in srgb, var(--text) 6%, transparent);
+
+  --shadow-strong: 0 18px 30px rgba(0, 0, 0, 0.18);
+
+  --cta-primary-bg: #2a2a2a;
+  --cta-primary-fg: #f6f3ea;
+  --cta-secondary-bg: color-mix(in srgb, white 46%, transparent);
+  --cta-secondary-bg-hover: color-mix(in srgb, white 62%, transparent);
+
+  --ui-font: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', system-ui, -apple-system, Segoe UI, sans-serif;
+  --display-font: 'Instrument Serif', ui-serif, Georgia, 'Times New Roman', serif;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #121216;
+  --text: #f0eee6;
+  --muted: color-mix(in srgb, var(--text) 70%, transparent);
+  --ink: #f0eee6;
+  --paper: #1a1a20;
+  --paper-soft: #1f2028;
+  --glass: color-mix(in srgb, #1a1a20 70%, transparent);
+  --glass-strong: color-mix(in srgb, #1a1a20 82%, transparent);
+  --border: color-mix(in srgb, var(--text) 10%, transparent);
+  --hover: color-mix(in srgb, var(--text) 9%, transparent);
+
+  --shadow-strong: 0 18px 30px rgba(0, 0, 0, 0.45);
+
+  --cta-primary-bg: #d8d4c7;
+  --cta-primary-fg: #121216;
+  --cta-secondary-bg: color-mix(in srgb, #1a1a20 72%, transparent);
+  --cta-secondary-bg-hover: color-mix(in srgb, #1a1a20 84%, transparent);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--text);
+  background: var(--bg);
+  font-family: var(--ui-font);
+}
+
+* {
+  box-sizing: border-box;
+}
