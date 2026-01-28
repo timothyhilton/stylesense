@@ -4,7 +4,6 @@ import {
   createRootRouteWithContext,
 } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
-import { TanStackDevtools } from '@tanstack/react-devtools'
 import Header from '../components/Header'
 import ClerkProvider from '../integrations/clerk/provider'
 import TanStackQueryDevtools from '../integrations/tanstack-query/devtools'
@@ -67,18 +66,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <ClerkProvider>
           <Header />
           {children}
-          <TanStackDevtools
-            config={{
-              position: 'bottom-right',
-            }}
-            plugins={[
-              {
-                name: 'Tanstack Router',
-                render: <TanStackRouterDevtoolsPanel />,
-              },
-              TanStackQueryDevtools,
-            ]}
-          />
         </ClerkProvider>
         <Scripts />
       </body>

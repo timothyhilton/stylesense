@@ -1,9 +1,18 @@
+import { getUserIdFn } from '@/lib/s3'
 import { SignedIn, SignedOut, RedirectToSignIn } from '@clerk/clerk-react'
 import { createFileRoute } from '@tanstack/react-router'
+import { useEffect, useState } from 'react'
 
 export const Route = createFileRoute('/dashboard')({ component: DashboardPage })
 
 function DashboardPage() {
+  const [clerkServerUser, setClerkServerUser] = useState<boolean | undefined>()
+
+  useEffect(() => {
+    getUserIdFn()
+      .then(user => setClerkServerUser(user.success))
+  }, [])
+
   return (
     <>
       <SignedIn>
@@ -14,6 +23,7 @@ function DashboardPage() {
               style={{ fontFamily: 'var(--display-font)' }}
             >
               Dashboard
+              {clerkServerUser ? "yay" : "bruh"}
             </h1>
           </div>
         </main>
